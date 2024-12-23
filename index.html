@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Length Random Password Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      background-image: url("pix.jpg");
+    }
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      width: 250px;
+    }
+    h1 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    input {
+      font-size: 1.2rem;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Multi Password Generator Heading -->
+  <h1>Multi Password Generator</h1>
+
+  <!-- Password Generators for Different Lengths -->
+  <div class="container">
+    <h2>8 Digit Password</h2>
+    <input type="text" id="password8" readonly>
+    <br>
+    <button onclick="generatePassword(8, 'password8')">Generate Password</button>
+    <button onclick="copyPassword('password8')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>10 Digit Password</h2>
+    <input type="text" id="password10" readonly>
+    <br>
+    <button onclick="generatePassword(10, 'password10')">Generate Password</button>
+    <button onclick="copyPassword('password10')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>12 Digit Password</h2>
+    <input type="text" id="password12" readonly>
+    <br>
+    <button onclick="generatePassword(12, 'password12')">Generate Password</button>
+    <button onclick="copyPassword('password12')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>14 Digit Password</h2>
+    <input type="text" id="password14" readonly>
+    <br>
+    <button onclick="generatePassword(14, 'password14')">Generate Password</button>
+    <button onclick="copyPassword('password14')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>16 Digit Password</h2>
+    <input type="text" id="password16" readonly>
+    <br>
+    <button onclick="generatePassword(16, 'password16')">Generate Password</button>
+    <button onclick="copyPassword('password16')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>18 Digit Password</h2>
+    <input type="text" id="password18" readonly>
+    <br>
+    <button onclick="generatePassword(18, 'password18')">Generate Password</button>
+    <button onclick="copyPassword('password18')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>20 Digit Password</h2>
+    <input type="text" id="password20" readonly>
+    <br>
+    <button onclick="generatePassword(20, 'password20')">Generate Password</button>
+    <button onclick="copyPassword('password20')">Copy Password</button>
+  </div>
+
+  <div class="container">
+    <h2>99 Digit Password</h2>
+    <input type="text" id="password99" readonly>
+    <br>
+    <button onclick="generatePassword(99, 'password99')">Generate Password</button>
+    <button onclick="copyPassword('password99')">Copy Password</button>
+  </div>
+
+
+  <script>
+    // Function to generate password of a specific length and set it in the corresponding input field
+    function generatePassword(length, elementId) {
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?";
+      let password = '';
+      
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+      }
+
+      document.getElementById(elementId).value = password;
+    }
+
+    // Function to copy the generated password to clipboard
+    function copyPassword(elementId) {
+      const passwordField = document.getElementById(elementId);
+      passwordField.select();
+      passwordField.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text to clipboard
+      document.execCommand('copy');
+
+      // Optionally show a message that the password has been copied
+      alert('Password copied to clipboard!');
+    }
+  </script>
+
+</body>
+</html>
