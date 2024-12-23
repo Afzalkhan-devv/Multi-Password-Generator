@@ -13,6 +13,9 @@ A simple web app that generates random passwords of different lengths (8, 10, 12
    ```bash
    git clone https://github.com/yourusername/password-generator.git
 
+   ![image](https://github.com/user-attachments/assets/156df108-5a36-4a22-93a5-a6687c8b0722)
+
+
 **Open the index.html file in any modern browser (Chrome, Firefox, Safari, etc.).
 **Generate a password by clicking the "Generate Password" button under the desired length.
 **Copy the generated password by clicking the "Copy Password" button next to it.
